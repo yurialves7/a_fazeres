@@ -2,6 +2,7 @@
 tarefas = []
 confere= []
 
+
 while True:
     print("""
 
@@ -46,6 +47,7 @@ while True:
     elif numero_da_lista == 3:
         print ("você escolheu o numero 3.")
         oque_deseja= input("quais tarefas vc concluio")
+    
         confere.append(f"(x){a_fazer}")
         tarefas.remove(a_fazer)
 
@@ -56,9 +58,20 @@ while True:
     elif numero_da_lista == 4:
         print("você escolheu o numero 4.")
         pergunta=input("oque vc deseja retirar da lista.....")
-        tarefas.remove(pergunta)
+        tarefas.remove(a_fazer)
+        tarefas.remove(f"(x){a_fazer}")
 
     elif numero_da_lista == 0:
         print("você escolheu o numero 0 saindo....")
+        with open ("banco_de_dados.txt","w") as arquivos:
+            for tarefa in tarefas:
+               arquivos.write(tarefa +"\n")
+        print("lista de tarefas salva com sucesso!")
+        lista= []
+        with open ("banco_de_dados.txt","r") as arquivo:
+            for terfas in arquivos:
+                list.append(tarefas)
+        
+
         break
 
